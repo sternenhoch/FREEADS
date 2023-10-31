@@ -1,14 +1,4 @@
 <x-header_footer>
- 
-  @if ($errors->any())
-  <div class="alert alert-danger">
-      <ul>
-          @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-          @endforeach
-      </ul>
-  </div>
-@endif
     <div class="col-lg-5 pl-lg-5 pb-3 py-lg-5">
         <form action="/register" method="POST" id="registration-form">
           @csrf
@@ -47,7 +37,10 @@
           <div class="form-group" class="text-muted mb-1">
             <label for="phone_number"><small>Phone number</small></label>
             <input name="phone_number" type="tel" id="phone_number" class="form-control">
-            </div>
+            @error('phone_number')
+            <p class="m-0 small alert alert-danger shadow-sm">{{$message}}</p>
+            @enderror
+          </div>
 
           <button type="submit" class="py-3 mt-4 btn btn-success btn-block">Create your account</button>
         </form>

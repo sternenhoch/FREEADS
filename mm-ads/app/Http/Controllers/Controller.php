@@ -32,6 +32,7 @@ class Controller extends BaseController
 
         $user_data['password'] = bcrypt($user_data['password']);
         User::create($user_data);
-        echo 'Hello from register function';
+        echo 'User successfully created';
+        return view ('login');
     }
 }

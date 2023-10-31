@@ -1,4 +1,13 @@
 <x-header_footer>
+    @if ($errors->any())
+  <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div>
+@endif
 <h1>Login</h1>
 <form action="/login" method="POST" class="mb-0 pt-2 pt-md-0">
     <div class="row align-items-center">
