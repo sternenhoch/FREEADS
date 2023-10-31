@@ -15,4 +15,8 @@ class Controller extends BaseController
     public function signup (){
         return view ('signup');
     }
+
+    public function login (){
+        return view ('login');
+    }
 }
