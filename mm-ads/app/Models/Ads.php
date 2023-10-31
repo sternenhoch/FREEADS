@@ -20,7 +20,9 @@ class Ads extends Model
         'description', //should not exceed 65 535 chars
         'photo',
         'price',
-        'location'
+        'location',
     ];
+
+// add    'author'?
 
 }

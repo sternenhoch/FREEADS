@@ -19,10 +19,4 @@ Route::get('/index', [AdsController::class, 'index']);//main page
 Route::get('/signup', [Controller::class, 'signup']);
 Route::get('/login', [Controller::class, 'login']);
 Route::post('/register', [Controller::class, 'register']);
-Route::get('/ad', [Controller::class, 'ad']);//une annonce agrandie
-
-
-
-
-
-
+Route::get('/ad', [AdsController::class, 'ad']);//une annonce agrandie

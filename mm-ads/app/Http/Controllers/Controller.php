@@ -26,15 +26,12 @@ class Controller extends BaseController
         $user_data = $request->validate([
             'login' =>['required', 'min:5', 'max:20'],
             'email' =>['required', 'email', Rule::unique('users', 'email')],
-            'password' =>['required', 'min:5', 'confirmed'],
+            'password' =>['required', 'min:5', 'max:20', 'confirmed'],
             'phone_number' =>'required'
         ]);
+
+        $user_data['password'] = bcrypt($user_data['password']);
         User::create($user_data);
         echo 'Hello from register function';
     }
-
-    public function ad (){
-        return view ('ad');
-    }
-
 }

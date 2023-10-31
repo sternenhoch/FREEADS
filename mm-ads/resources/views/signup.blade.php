@@ -14,22 +14,34 @@
           @csrf
           <div class="form-group">
             <label for="login" class="text-muted mb-1"><small>Login</small></label>
-            <input name="login" id="login" class="form-control" type="text" placeholder="Pick a login" autocomplete="off" />
+            <input name="login" value="{{old('login')}}" id="login" class="form-control" type="text" placeholder="Pick a login" autocomplete="off" />
+            @error('login')
+            <p class="m-0 small alert alert-danger shadow-sm">{{$message}}</p>
+            @enderror
           </div>
 
           <div class="form-group">
             <label for="email" class="text-muted mb-1"><small>Email</small></label>
-            <input name="email" id="email" class="form-control" type="text" placeholder="you@example.com" autocomplete="off" required />
+            <input name="email" id="email" value="{{old('email')}}" class="form-control" type="text" placeholder="you@example.com" autocomplete="off" required />
+          @error('email')
+          <p class="m-0 small alert alert-danger shadow-sm">{{$message}}</p>
+          @enderror
           </div>
 
           <div class="form-group">
             <label for="password" class="text-muted mb-1"><small>Password</small></label>
-            <input name="password" id="password" class="form-control" type="password" placeholder="Create a password" minlength="5" required />
+            <input name="password" id="password" class="form-control" type="password" placeholder="Create a password" required />
+            @error('password')
+            <p class="m-0 small alert alert-danger shadow-sm">{{$message}}</p>
+            @enderror
           </div>
 
           <div class="form-group">
             <label for="password_confirmation" class="text-muted mb-1"><small>Confirm Password</small></label>
-            <input name="password_confirmation" id="password_confirmation" class="form-control" type="password" placeholder="Confirm password" minlength="5" required/>
+            <input name="password_confirmation" id="password_confirmation" class="form-control" type="password" placeholder="Confirm password" required/>
+            @error('password_confirmation')
+            <p class="m-0 small alert alert-danger shadow-sm">{{$message}}</p>
+            @enderror
           </div>
 
           <div class="form-group" class="text-muted mb-1">

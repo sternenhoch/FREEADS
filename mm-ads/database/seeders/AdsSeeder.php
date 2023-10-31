@@ -1,7 +1,6 @@
 <?php
 
 namespace Database\Seeders;
-
 use Illuminate\Database\Seeder;
 
 class AdsSeeder extends Seeder
@@ -13,6 +12,6 @@ class AdsSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\Ads::factory(5)->create();
     }
 }

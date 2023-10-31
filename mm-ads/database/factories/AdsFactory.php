@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+
 class AdsFactory extends Factory
 {
     /**
@@ -14,7 +15,12 @@ class AdsFactory extends Factory
     public function definition()
     {
         return [
-            //
+                'title' => $this->faker->sentence(8),
+                'category' => $this->faker->word(),
+                'description' => $this->faker->paragraphs(3, true),
+                'price'=> $this->faker->randomDigit(),
+                'location'=> $this->faker->postcode(),
+                'photo' => $this->faker->image(null, 640, 480),
         ];
     }
 }
