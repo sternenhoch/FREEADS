@@ -15,8 +15,8 @@ use App\Http\Controllers\AdsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/Ads', [AdsController::class, 'index']);
-Route::get('/Ads/about', [AdsController::class, 'about']);
+Route::get('/index', [AdsController::class, 'index']);
+//Route::get('/Ads', 'AdsController@index')->name('Ads.index');
 Route::get('/signup', [Controller::class, "signup"]);
 Route::get('/login', [Controller::class, "login"]);
 
