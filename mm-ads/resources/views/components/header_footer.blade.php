@@ -21,14 +21,18 @@
             <a class="nav-link active" aria-current="page" href="index.php">Home</a>
           </li>
         </ul>
-        <a class="btn btn-succes" href="./signup.php" role="button">Post ad</a>
-      <a class="btn btn-outline" href="./signin.php" role="button">Sign In</a>
+        <a class="btn btn-success mx-2" href="./signup.php" role="button"><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+        </svg>Post ad</a>
+      <a class="btn btn-outline-light pr-2" href="./login.php" role="button">Sign In</a>
+      </div>
+    </nav>
 
 <!-- search bar-->
-<div class="container-fluid">
+<div class="container-fluid pt-2">
     <form class="d-flex" role="search">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
+      <button class="btn btn-outline-primary" type="submit">Search</button>
     </form>
   </div>
 
