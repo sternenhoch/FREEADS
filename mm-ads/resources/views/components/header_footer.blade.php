@@ -11,17 +11,17 @@
 <!-- navbar -->
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary sticky-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">MM Ads</a>
+      <a class="navbar-brand" href="/index">MM Ads</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#expandme" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="expandme">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/Ads">Home</a>
+            <a class="nav-link active" aria-current="page" href="/index">Home</a>
           </li>
         </ul>
-        <a class="btn btn-success mx-2" href="./signup" role="button"><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+        <a class="btn btn-success mx-2" href="./ad" role="button"><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
         </svg>Post ad</a>
       <a class="btn btn-outline-light pr-2" href="./login" role="button">Sign In</a>
