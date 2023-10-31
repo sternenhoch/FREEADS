@@ -14,11 +14,9 @@ class AdsController extends Controller
     public function index()
     {
         //
-        return view('Ads.index');
+        return view('index');
     }
-    public function about(){
-        return 'About us page';
-    }
+    
 
     /**
      * Show the form for creating a new resource.
