@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\adsController;
+use App\Models\Ads;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/Ads', [AdsController::class, 'index']);
+Route::get('/Ads/about', [AdsController::class, 'about']);
 Route::get('/signup', [Controller::class, "signup"]);
+
+
 
 
 
