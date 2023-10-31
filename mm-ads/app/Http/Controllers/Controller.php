@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Controller extends BaseController
 {
@@ -19,4 +21,20 @@ class Controller extends BaseController
     public function login (){
         return view ('login');
     }
+    public function register (Request $request){
+        dump($request);
+        $user_data = $request->validate([
+            'login' =>['required', 'min:5', 'max:20'],
+            'email' =>['required', 'email', Rule::unique('users', 'email')],
+            'password' =>['required', 'min:5', 'confirmed'],
+            'phone_number' =>'required'
+        ]);
+        User::create($user_data);
+        echo 'Hello from register function';
+    }
+
+    public function ad (){
+        return view ('ad');
+    }
+
 }

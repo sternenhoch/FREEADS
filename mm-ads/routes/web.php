@@ -17,8 +17,10 @@ use App\Http\Controllers\AdsController;
 */
 Route::get('/Ads', [AdsController::class, 'index']);
 Route::get('/Ads/about', [AdsController::class, 'about']);
-Route::get('/signup', [Controller::class, "signup"]);
-Route::get('/login', [Controller::class, "login"]);
+Route::get('/signup', [Controller::class, 'signup']);
+Route::get('/login', [Controller::class, 'login']);
+Route::post('/register', [Controller::class, 'register']);
+Route::get('/ad', [Controller::class, 'ad']);
 
 
 

@@ -1,7 +1,17 @@
 <x-header_footer>
-
+ 
+  @if ($errors->any())
+  <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div>
+@endif
     <div class="col-lg-5 pl-lg-5 pb-3 py-lg-5">
-        <form action="#" method="POST" id="registration-form">
+        <form action="/register" method="POST" id="registration-form">
+          @csrf
           <div class="form-group">
             <label for="login" class="text-muted mb-1"><small>Login</small></label>
             <input name="login" id="login" class="form-control" type="text" placeholder="Pick a login" autocomplete="off" />
@@ -24,7 +34,7 @@
 
           <div class="form-group" class="text-muted mb-1">
             <label for="phone_number"><small>Phone number</small></label>
-            <input name="phone_number" type="tel" id="phone_number" class="form-control" pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}" placeholder="01 02 03 04 05">
+            <input name="phone_number" type="tel" id="phone_number" class="form-control">
             </div>
 
           <button type="submit" class="py-3 mt-4 btn btn-success btn-block">Create your account</button>
