@@ -22,7 +22,7 @@ class Controller extends BaseController
         return view ('login');
     }
     public function register (Request $request){
-        dump($request);
+        //dump($request);
         $user_data = $request->validate([
             'login' =>['required', 'min:5', 'max:20'],
             'email' =>['required', 'email', Rule::unique('users', 'email')],
@@ -34,5 +34,22 @@ class Controller extends BaseController
         User::create($user_data);
         echo 'User successfully created';
         return view ('login');
+    }
+
+    public function signin (Request $request) {
+        //dump($request);
+        $user_data = $request->validate([
+            'loginusername' => 'required',
+            'loginpassword' => 'required'
+        ]);
+
+        if (auth()->attempt(['login' => $user_data['loginusername'], 
+        'password' => $user_data['loginpassword']])) {
+            $request->session()->regenerate();
+            echo 'User found';
+        } else {
+            echo 'User not found';
+            }
+            return view ('index');
     }
 }
