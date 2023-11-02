@@ -33,8 +33,8 @@
             <td>{{ $ad->title }}</td>
             <td>{{ $ad->category }}</td>
             <td>{{ $ad->description }}</td>
-            <td>{{ $ad->Price }}</td>
-            <td>{{ $ad->Location }}</td>
+            <td>{{ $ad->price }}</td>
+            <td>{{ $ad->location }}</td>
 
             <td>
                 <form action="{{ route('ads.destroy',$ad->id) }}" method="POST">
@@ -52,7 +52,6 @@
         </tr>
         @endforeach
     </table>
-  
-    <!--{!! $ads->links() !!}-->
+
 {{$ads->links()}}
 </x-header_footer>

@@ -19,14 +19,14 @@ class AdsController extends Controller
     public function index():View
     {
         $ads = ads::all();
-        return view('Ads.index',compact('ads'));
+        return view('index', ['ads' =>DB::table('ads')->paginate(5)]);
+        //return view('Ads.index',compact('ads'));
                  
     }
 
-    /*public function ad (){
+    public function ad (){
         return view('ad');
     }
-    */
 
     /**
      * Show the form for creating a new resource.
