@@ -18,10 +18,9 @@ class AdsController extends Controller
      */
     public function index():View
     {
-        $products = Ads::latest()->paginate(5);
-        
-        return view('ads.index',compact('ads'))
-                    ->with('i', (request()->input('page', 1) - 1) * 5);
+        $ads = ads::all();
+        return view('Ads.index',compact('ads'));
+                 
     }
 
     /*public function ad (){
@@ -36,7 +35,7 @@ class AdsController extends Controller
      */
     public function create():View
     {
-        return view('ads.create');
+        return view('Ads.create');
     }
 
     /**
@@ -48,14 +47,16 @@ class AdsController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => 'required',
-            'detail' => 'required',
+            'title' => 'required',
+            'category' => 'required',
+            'description' => 'required',
+            'price' => 'required',
         ]);
-        
-        Ads::create($request->all());
+        $ads = Ads::create($request->all());
+        //$ads->create($request->all());
          
-        return redirect()->route('products.index')
-                        ->with('success','Ad created successfully.');
+        return redirect()->route('ads.index')
+                        ->with('success','Ad created successfully');
     }
 
     /**
@@ -66,7 +67,7 @@ class AdsController extends Controller
      */
     public function show(Ads $id): View
     {
-        return view('ads.show',compact('ads'));
+        return view('Ads.show',compact('ads'));
     }
 
     /**
@@ -75,9 +76,9 @@ class AdsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ads $ads): View
+    public function edit(Ads $ad): View
     {
-        return view('ads.edit',compact('ads'));
+        return view('Ads.edit',compact('ad'));
     }
 
     /**

@@ -1,13 +1,14 @@
-@extends('ads.layout')
- 
-@section('content')
+<x-header_footer>
+
+
+<h1>All ads</h1>
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Create</h2>
+                <h2>Title</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('ads.create') }}"> Create New Ad</a>
+                <a class="btn btn-success" href="{{ route('ads.create') }}"> Create Ad</a>
             </div>
         </div>
     </div>
@@ -20,16 +21,23 @@
    
     <table class="table table-bordered">
         <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Details</th>
-            <th width="280px">Action</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Location</th>
+            <th>Actions</th>
+            
+            <th width="280px"></th>
         </tr>
-        @foreach ($ad as $ad)
+        @foreach ($ads as $ad)
         <tr>
-            <td>{{ ++$i }}</td>
-            <td>{{ $ad->name }}</td>
-            <td>{{ $ad->detail }}</td>
+            <td>{{ $ad->title }}</td>
+            <td>{{ $ad->category }}</td>
+            <td>{{ $ad->description }}</td>
+            <td>{{ $ad->Price }}</td>
+            <td>{{ $ad->Location }}</td>
+
             <td>
                 <form action="{{ route('ads.destroy',$ad->id) }}" method="POST">
    
@@ -47,6 +55,5 @@
         @endforeach
     </table>
   
-    {!! $ads->links() !!}
       
-@endsection
+</x-header_footer>
