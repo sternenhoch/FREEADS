@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ads;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
+
 
 class AdsController extends Controller
 {
@@ -11,24 +16,27 @@ class AdsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index():View
     {
-        return view('index');
+        $products = Ads::latest()->paginate(5);
+        
+        return view('ads.index',compact('ads'))
+                    ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    public function ad (){
+    /*public function ad (){
         return view('ad');
     }
-    
+    */
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create():View
     {
-        //
+        return view('ads.create');
     }
 
     /**
@@ -37,9 +45,17 @@ class AdsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'detail' => 'required',
+        ]);
+        
+        Ads::create($request->all());
+         
+        return redirect()->route('products.index')
+                        ->with('success','Ad created successfully.');
     }
 
     /**
@@ -48,9 +64,9 @@ class AdsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Ads $id): View
     {
-        //
+        return view('ads.show',compact('ads'));
     }
 
     /**
@@ -59,9 +75,9 @@ class AdsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Ads $ads): View
     {
-        //
+        return view('ads.edit',compact('ads'));
     }
 
     /**
@@ -71,9 +87,17 @@ class AdsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Ads $ads): RedirectResponse
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'detail' => 'required',
+        ]);
+        
+        $ads->update($request->all());
+        
+        return redirect()->route('ads.index')
+                        ->with('success','Ad updated successfully');
     }
 
     /**
@@ -82,8 +106,10 @@ class AdsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Ads $ads): RedirectResponse
     {
-        //
+        $ads->delete();
+        return redirect()->route('ads.index')
+                        ->with('success','Ad deleted successfully');
     }
 }
