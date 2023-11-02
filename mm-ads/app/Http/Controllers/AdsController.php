@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Ads;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
-
 
 class AdsController extends Controller
 {

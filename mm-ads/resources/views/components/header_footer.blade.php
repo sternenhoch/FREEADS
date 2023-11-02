@@ -26,10 +26,11 @@
           <a href="#" class="text-white mr-2 header-search-icon" title="Search" data-toggle="tooltip" data-placement="bottom"><i class="fas fa-search"></i></a>
           <span class="text-white mr-2 header-chat-icon" title="Chat" data-toggle="tooltip" data-placement="bottom"><i class="fas fa-comment"></i></span>
           <a href="#" class="mr-2"><img title="My Profile" data-toggle="tooltip" data-placement="bottom" style="width: 32px; height: 32px; border-radius: 16px" src="https://gravatar.com/avatar/f64fc44c03a8a7eb1d52502950879659?s=128" /></a>
-          <form action="#" method="POST" class="d-inline">
             <a class="btn btn-success mx-2" href="ad" role="button"><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
               <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
           </svg>Post ad</a>
+          <form action="/logout" method="POST" class="d-inline">
+            @csrf
             <button class="btn btn-secondary">Sign Out</button>
           </form>
         </div>
@@ -51,11 +52,22 @@
     </form>
   </div>
 
+@if (session()->has('success'))
+<div class="container container-narrow">
+  <div class="alert alert-success text-center">
+    {{session('success')}}
+  </div>
+</div>
+@endif
+
 {{$slot}}
 
 <!-- placeholder for pagination-->
 
 <!--placeholder for footer-->
+<footer class="border-top text-center small text-muted py-3">
+  <p class="m-0">Copyright &copy; {{date('Y')}} <a href="/" class="text-muted">MM Ads</a>. All rights reserved.</p>
+</footer>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </html>
