@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdsController extends Controller
 {
@@ -13,7 +14,7 @@ class AdsController extends Controller
      */
     public function index()
     {
-        return view('index');
+        return view('index', ['ads' => DB::table('ads')->paginate(8)]);
     }
 
     public function ad (){
