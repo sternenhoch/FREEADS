@@ -1,6 +1,4 @@
 <x-header_footer>
-
-
 <h1>All ads</h1>
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -55,6 +53,6 @@
         @endforeach
     </table>
   
-    {!! $ads->links() !!}
-      
+    <!--{!! $ads->links() !!}-->
+{{$ads->links()}}
 </x-header_footer>

@@ -21,4 +21,5 @@ Route::post('/signin', [Controller::class, 'signin']);
 Route::get('/login', [Controller::class, 'login']);
 Route::post('/register', [Controller::class, 'register']);
 Route::get('/ad', [AdsController::class, 'ad']);//une annonce agrandie
-Route::resource('ads', AdsController::class);
+Route::post('/logout', [Controller::class, 'logout']);
+Route::ressource('ads', AdsController::class);
