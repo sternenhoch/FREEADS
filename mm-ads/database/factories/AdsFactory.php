@@ -17,7 +17,7 @@ class AdsFactory extends Factory
         return [
                 'title' => $this->faker->sentence(8),
                 'category' => $this->faker->word(),
-                'description' => $this->faker->paragraphs(3, true),
+                'description' => $this->faker->paragraphs(1, true),
                 'price'=> $this->faker->randomDigit(),
                 'location'=> $this->faker->postcode(),
                 'photo' => $this->faker->image(null, 640, 480),
