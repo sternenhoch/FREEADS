@@ -18,8 +18,12 @@ class AdsController extends Controller
      */
     public function index():View
     {
-        $ads = ads::all();
-        return view('index', ['ads' =>DB::table('ads')->paginate(6)]);
+        if(request()->has('search')){
+            $ads = ads::where('title','like', '%'.request()->get('search','') . '%')->paginate(5);
+            return view('index', ['ads' =>$ads]);
+        }
+        return view('index', ['ads' =>DB::table('ads')->paginate(5)]);
+        //return view('Ads.index',compact('ads'));
                  
     }
 
@@ -64,9 +68,9 @@ class AdsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Ads $id): View
+    public function show(Ads $ad): View
     {
-        return view('Ads.show',compact('ads'));
+        return view('Ads.show',compact('ad'));
     }
 
     /**

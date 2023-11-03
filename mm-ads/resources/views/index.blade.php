@@ -75,8 +75,8 @@
             </td>
         </tr>
         @endforeach
-    </table>
-</div>-->
-
-{{$ads->links()}}
+    </table>-->
+    @if($ads->links() !== null)
+    {{$ads->links()}}
+    @endif
 </x-header_footer>

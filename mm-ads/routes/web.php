@@ -27,6 +27,7 @@ Route::get('/ad', [AdsController::class, 'ad']);//une annonce agrandie
 Route::post('/logout', [Controller::class, 'logout']);
 Route::resource('ads', AdsController::class);
 
+
 Route::controller(VerificationController::class)->group(function() {
     Route::get('/email/verify', 'notice')->name('verification.notice');
     Route::get('/email/verify/{id}/{hash}', 'verify')->name('verification.verify');

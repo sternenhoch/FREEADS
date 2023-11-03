@@ -22,14 +22,14 @@
         <tr>
             <th>ID</th>
             <th>Title</th>
-            <th>Details</th>
+            <th>Description</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($Ads as $ad)
         <tr>
             <td>{{ ++$i }}</td>
-            <td>{{ $ad->name }}</td>
-            <td>{{ $ad->detail }}</td>
+            <td>{{ $ad->Title }}</td>
+            <td>{{ $ad->Description }}</td>
             <td>
                 <form action="{{ route('ads.destroy',$ad->id) }}" method="POST">
    

@@ -44,11 +44,16 @@
 
 <!-- search bar-->
 <div class="container-fluid pt-2">
+  <!-- search bar
     <form class="d-flex" role="search">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-primary" type="submit">Search</button>
+    </form>-->
+    <form action="{{ route ('ads.index')}}" class="d-flex" method="get">
+      <input name="search" placeholder="search" class="form-control w-100" type="text">
+      <button class="btn btn-outline-primary">Search</button>
     </form>
-  </div>
+      </div>
 
 @if (session()->has('success'))
 <div class="container container-narrow">
