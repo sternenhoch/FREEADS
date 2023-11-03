@@ -20,7 +20,7 @@ class AdsFactory extends Factory
                 'description' => $this->faker->paragraphs(1, true),
                 'price'=> $this->faker->randomDigit(),
                 'location'=> $this->faker->postcode(),
-                'photo' => $this->faker->image(null),
+                'photo' => $this->faker->imageUrl(360, 360)
         ];
     }
 }

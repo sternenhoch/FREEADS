@@ -19,13 +19,12 @@ class AdsController extends Controller
     public function index():View
     {
         $ads = ads::all();
-        return view('index', ['ads' =>DB::table('ads')->paginate(5)]);
-        //return view('Ads.index',compact('ads'));
+        return view('index', ['ads' =>DB::table('ads')->paginate(6)]);
                  
     }
 
     public function ad (){
-        return view('ad');
+        return view('Ads.create');
     }
 
     /**
@@ -51,7 +50,6 @@ class AdsController extends Controller
             'category' => 'required',
             'description' => 'required',
             'price' => 'required',
-            //'photo' => 'required|image|mimes:jpeg, png,jpg,gif|max2048',
         ]);
         $ads = Ads::create($request->all());
         //$ads->create($request->all());

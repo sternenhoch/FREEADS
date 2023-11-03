@@ -19,17 +19,17 @@ class CreateAdsTable extends Migration
             $table->string('title');
             $table->string('category');
             $table->text('description');
-            //$table->mediumblob('photo'); //up to 16 MB
+            $table->string('photo');
             $table->decimal('price', 4, 2);
             $table->string('location');
             $table->timestamps();
         });
 
-        DB::statement("ALTER TABLE ads ADD photo  MEDIUMBLOB");
+        /*DB::statement("ALTER TABLE ads ADD photo  MEDIUMBLOB");
 
         Schema::table('ads', function (Blueprint $table) {
             $table->integer('photo');
-        });
+        });*/
     }
 
     /**
