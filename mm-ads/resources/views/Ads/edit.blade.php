@@ -30,15 +30,34 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Title:</strong>
-                    <input type="text" name="name" value="{{ $ad->name }}" class="form-control" placeholder="Name">
+                    <input type="text" name="title" value="{{ $ad->title }}" class="form-control" placeholder="title">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Picture:</strong>
+                    <input type="text" name="picture" value="{{ $ad->picture }}" class="form-control" placeholder="picture">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Description:</strong>
-                    <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail">{{ $ad->detail }}</textarea>
+                    <textarea class="form-control" style="height:150px" name="description" placeholder="Description">{{ $ad->description }}</textarea>
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Price:</strong>
+                    <input type="decimal(4,2)" name="price" value="{{ $ad->price }}" class="form-control" placeholder="price">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Location:</strong>
+                    <input type="varchar(255)" name="location" value="{{ $ad->location}}" class="form-control" placeholder="location">
+                </div>
+            </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>

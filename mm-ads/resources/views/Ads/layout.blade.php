@@ -1,4 +1,4 @@
-@extends('ads.layout')
+@extends('Ads.layout')
  
 @section('content')
     <div class="row">
@@ -20,12 +20,12 @@
    
     <table class="table table-bordered">
         <tr>
-            <th>No</th>
-            <th>Name</th>
+            <th>ID</th>
+            <th>Title</th>
             <th>Details</th>
             <th width="280px">Action</th>
         </tr>
-        @foreach ($ad as $ad)
+        @foreach ($Ads as $ad)
         <tr>
             <td>{{ ++$i }}</td>
             <td>{{ $ad->name }}</td>

@@ -15,14 +15,14 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Name:</strong>
-                {{ $ad->name }}
+                <strong>title:</strong>
+                {{ $ad->title }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Details:</strong>
-                {{ $ad->detail }}
+                <strong>Description:</strong>
+                {{ $ad->description }}
             </div>
         </div>
     </div>
