@@ -51,6 +51,7 @@ class AdsController extends Controller
             'category' => 'required',
             'description' => 'required',
             'price' => 'required',
+            //'photo' => 'required|image|mimes:jpeg, png,jpg,gif|max2048',
         ]);
         $ads = Ads::create($request->all());
         //$ads->create($request->all());

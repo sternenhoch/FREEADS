@@ -41,7 +41,8 @@ class Controller extends BaseController
         //automating login after registration
         $user = User::create($user_data);
         auth()->login($user);
-        //event(new Registered($user));
+        event(new Registered($user));
+        return redirect()->route('verification.notice');
         return redirect('/')->with('success', 'Thank you for ' . Auth::user()->login . ' creating your account.');
 
     }
@@ -62,4 +63,5 @@ class Controller extends BaseController
             }
             return redirect('/');
     }
+
 }

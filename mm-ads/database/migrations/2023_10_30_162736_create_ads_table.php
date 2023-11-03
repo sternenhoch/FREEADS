@@ -26,6 +26,10 @@ class CreateAdsTable extends Migration
         });
 
         DB::statement("ALTER TABLE ads ADD photo  MEDIUMBLOB");
+
+        Schema::table('ads', function (Blueprint $table) {
+            $table->integer('photo');
+        });
     }
 
     /**

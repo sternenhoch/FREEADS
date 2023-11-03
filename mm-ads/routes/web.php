@@ -1,9 +1,12 @@
 <?php
 
-use App\Http\Controllers\Controller;
 use App\Models\Ads;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdsController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\Auth\LoginRegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +26,9 @@ Route::post('/register', [Controller::class, 'register']);
 Route::get('/ad', [AdsController::class, 'ad']);//une annonce agrandie
 Route::post('/logout', [Controller::class, 'logout']);
 Route::resource('ads', AdsController::class);
+
+Route::controller(VerificationController::class)->group(function() {
+    Route::get('/email/verify', 'notice')->name('verification.notice');
+    Route::get('/email/verify/{id}/{hash}', 'verify')->name('verification.verify');
+    Route::post('/email/resend', 'resend')->name('verification.resend');
+});
